@@ -4,24 +4,22 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 class Empregado {
+  protected:
+    string nome;
+    double salarioHora; 
+    double horasTrabalhadas;
 	
   public:
-    double salarioHora;  
-    double quotaMensalVendas;  
+    //Construtor
+    Empregado(string nome, double salarioHora);
+    //Calcula o pagamento no mês
+    double pagamentoMes() const;
 
-
-    double pagamentoMes(double horasTrabalhadas) {
- 
-      double t = horasTrabalhadas;
-	  
-	  //Cálculo de hora extra (+50% se horasTrabalhadas > 8)
-      if (horasTrabalhadas > 8) {
-        double x = horasTrabalhadas - 8;
-        t += x / 2;
-      }
-	  return t * salarioHora;
-    }
+    //Modifica as horas trabalhadas
+    void setHorasTrabalhadas(double horasTrabalhadas);
 	
 };
 
